@@ -1,6 +1,6 @@
 ; Writes Smash Mouth - All Star lyrics to the output
 
-	JMP start
+	JMP main
 s1:
 	DB "Somebody once told me" ; Variable
 	DB 0	; String terminator
@@ -16,11 +16,11 @@ s4:
 
 clear:
 	MOV D, 232	; Point to output
-.loop2:
+.clearloop:
 	MOV [D], 32	; Write to output
 	INC D
 	CMP D, 255	; Check if end
-	JNZ .loop2	; jump if not
+	JNZ .clearloop	; jump if not
 	MOV [255], 32
 	RET
 
@@ -28,16 +28,16 @@ print:
 	CALL clear
 	MOV B, 0
 	MOV D, 232	; Point to output
-.loop:
+.printloop:
 	MOV A, [C]	; Get char from var
 	MOV [D], A	; Write to output
 	INC C
 	INC D
 	CMP B, [C]	; Check if end
-	JNZ .loop	; jump if not
+	JNZ .printloop	; jump if not
 	RET
 	
-start:
+main:
 	MOV C, s1	; Point to var 
 	CALL print
 	MOV C, s2
