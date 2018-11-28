@@ -1,6 +1,9 @@
 ; Writes Smash Mouth - All Star lyrics to the output
 
 	JMP main
+serr:
+	DB "Error: String too large" ; Variable
+	DB 0	; String terminator
 s1:
 	DB "Somebody once told me" ; Variable
 	DB 0	; String terminator
@@ -13,6 +16,11 @@ s3:
 s4:
 	DB "tool in the shed" ; string
 	DB 0
+
+err:
+	MOV C, serr	; Point to var 
+	CALL print
+	HLT
 
 clear:
 	MOV D, 232	; Point to output
@@ -29,6 +37,8 @@ print:
 	MOV B, 0
 	MOV D, 232	; Point to output
 .printloop:
+	CMP D, 0	; Check if string too long
+	JZ err
 	MOV A, [C]	; Get char from var
 	MOV [D], A	; Write to output
 	INC C
