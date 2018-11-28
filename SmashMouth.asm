@@ -1,5 +1,4 @@
-; Simple example
-; Writes Hello World to the output
+; Writes Smash Mouth - All Star lyrics to the output
 
 	JMP start
 s1:
@@ -14,7 +13,6 @@ s3:
 s4:
 	DB "tool in the shed" ; string
 	DB 0
-
 
 clear:
 	MOV D, 232	; Point to output
@@ -38,7 +36,7 @@ print:
 	CMP B, [C]	; Check if end
 	JNZ .loop	; jump if not
 	RET
-
+	
 start:
 	MOV C, s1	; Point to var 
 	CALL print
