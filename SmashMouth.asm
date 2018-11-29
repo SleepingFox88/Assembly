@@ -55,4 +55,4 @@ main:
 	CALL print
 	MOV C, s4
 	CALL print
-        HLT             ; Stop
+	HLT             ; Stop
