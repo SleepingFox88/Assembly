@@ -2,20 +2,20 @@
 
 	JMP main
 serr:
-	DB "Error: String too large" ; Variable
+	DB "Error: String too large" ; string
 	DB 0	; String terminator
 s1:
-	DB "Somebody once told me" ; Variable
+	DB "Somebody once told me" ; string
 	DB 0	; String terminator
 s2:
 	DB "the world is gonna roll" ; string
 	DB 0
 s3:
 	DB "me. I ain't the sharpest" ; string
-	DB 0
+	DB 0	; String terminator
 s4:
 	DB "tool in the shed" ; string
-	DB 0
+	DB 0	; String terminator
 
 err:
 	MOV C, serr	; Point to var 
