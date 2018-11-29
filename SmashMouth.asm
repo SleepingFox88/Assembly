@@ -2,20 +2,20 @@
 
 	JMP main
 serr:
-	DB "Error: String too large" ; string
+	DB "Error: String too large" ; Variable
 	DB 0	; String terminator
 s1:
-	DB "Somebody once told me" ; string
+	DB "Somebody once told me!!!" ; Variable
 	DB 0	; String terminator
 s2:
 	DB "the world is gonna roll" ; string
 	DB 0
 s3:
 	DB "me. I ain't the sharpest" ; string
-	DB 0	; String terminator
+	DB 0
 s4:
 	DB "tool in the shed" ; string
-	DB 0	; String terminator
+	DB 0
 
 err:
 	MOV C, serr	; Point to var 
@@ -27,9 +27,8 @@ clear:
 .clearloop:
 	MOV [D], 32	; Write to output
 	INC D
-	CMP D, 255	; Check if end
+	CMP D, 0	; Check if end
 	JNZ .clearloop	; jump if not
-	MOV [255], 32
 	RET
 
 print:
