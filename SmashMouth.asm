@@ -5,7 +5,7 @@ serr:
 	DB "Error: String too large" ; Variable
 	DB 0	; String terminator
 s1:
-	DB "Somebody once told me!!!" ; Variable
+	DB "Somebody once told me" ; Variable
 	DB 0	; String terminator
 s2:
 	DB "the world is gonna roll" ; string
